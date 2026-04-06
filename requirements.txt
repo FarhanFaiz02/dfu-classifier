@@ -1,5 +1,6 @@
-# Streamlit Cloud — no version pins, let pip resolve for Python 3.14
-tensorflow-cpu
+# Streamlit Cloud — allow pre-release for Python 3.14 tensorflow support
+--pre
+tensorflow-cpu>=2.21.0
 numpy
 opencv-python-headless
 Pillow
