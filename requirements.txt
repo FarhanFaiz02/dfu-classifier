@@ -1,8 +1,6 @@
-# Streamlit Cloud — allow pre-release for Python 3.14 tensorflow support
---pre
-tensorflow-cpu>=2.21.0
+# Streamlit Cloud — ONNX Runtime (Python 3.14 compatible)
+onnxruntime
 numpy
 opencv-python-headless
 Pillow
-imagehash
 streamlit
