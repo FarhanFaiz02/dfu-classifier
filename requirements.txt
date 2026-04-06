@@ -1,6 +1,6 @@
-# Streamlit Cloud requirements — Python 3.11 on Linux
+# Streamlit Cloud requirements — Python 3.12 on Linux
 # Use tensorflow-cpu (no GPU on Cloud) and headless OpenCV (no libGL needed)
-tensorflow-cpu==2.17.0
+tensorflow-cpu==2.18.0
 numpy==1.26.4
 pandas==2.2.2
 scipy==1.13.1
