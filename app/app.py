@@ -1,6 +1,7 @@
 # === COMPLETE CODE BLOCK — COPY ENTIRE BLOCK ===
 """
 DFU Classifier Web Application — ONNX Runtime version
+Model: DenseNet121 (best performer — AUC 0.9937, F1 0.9638)
 Run locally:  streamlit run app/app.py  (from dfu_project root)
 Cloud:        Streamlit Community Cloud (Python 3.14, onnxruntime)
 """
@@ -25,8 +26,8 @@ IMG_SIZE                = (224, 224)
 
 # ── ONNX model search paths (app/model/ first, then local weights dir) ───────
 ONNX_SEARCH_PATHS = [
-    os.path.join(APP_DIR,      "model", "efficientnetb0.onnx"),
-    os.path.join(PROJECT_ROOT, "models", "weights", "efficientnetb0.onnx"),
+    os.path.join(APP_DIR,      "model", "densenet121.onnx"),
+    os.path.join(PROJECT_ROOT, "models", "weights", "densenet121.onnx"),
 ]
 
 
@@ -111,19 +112,19 @@ def render_sidebar(model_file):
 
         st.markdown("### About")
         st.markdown(
-            "This tool uses **EfficientNetB0** transfer learning "
+            "This tool uses **DenseNet121** transfer learning "
             "to classify foot images as *Ulcer* or *Normal*. "
             "Trained on DFUC2021, DFUC2020, and KDFU benchmark datasets."
         )
 
         st.markdown("### Model")
         st.markdown(
-            "- Architecture: EfficientNetB0\n"
+            "- Architecture: DenseNet121\n"
             "- Format: ONNX (optimised for CPU inference)\n"
             "- Input: 224×224×3\n"
             "- Head: GAP → Dense(256) → Dropout(0.4) → Sigmoid\n"
-            "- Target AUC: ≥ 0.95\n"
-            "- Target F1: ≥ 0.93"
+            "- AUC: 0.9937 (best of 6 models)\n"
+            "- F1: 0.9638 | Accuracy: 0.9586"
         )
         if model_file:
             st.success(f"Model loaded: `{model_file}`")
@@ -273,7 +274,7 @@ def main():
     )
     st.caption(
         "MSc Thesis — Torrens University Australia | ITA602 | "
-        "EfficientNetB0 Transfer Learning | DFUC2021/2020/KDFU"
+        "DenseNet121 Transfer Learning | DFUC2021/2020/KDFU"
     )
 
 
